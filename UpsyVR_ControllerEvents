@@ -1,0 +1,45 @@
+//======================             UpsyVR             ======================
+//
+//  Purpose: VRController State.
+//
+//  This script should be added on the "UpsyVR_VRController".
+//
+//  Last edit: Han20180816
+//============================================================================
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UpsyVR_ControllerEvents : MonoBehaviour {
+	
+	/// <summary>
+	/// Left Controller State
+	/// </summary>
+	public bool Left_Trigger = false;
+	public bool Left_ApplicationMenu = false;
+	public bool Left_Grip = false;
+	public bool Left_Touchpad = false;
+	public bool Left_TouchpadTouch = false;
+
+	/// <summary>
+	/// Right Controller State
+	/// </summary>
+	public bool Right_Trigger = false;
+	public bool Right_ApplicationMenu = false;
+	public bool Right_Grip = false;
+	public bool Right_Touchpad = false;
+	public bool Right_TouchpadTouch = false;
+
+	// Use this for initialization
+	void Start () {
+
+
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}
