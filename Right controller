@@ -1,0 +1,43 @@
+//======================             UpsyVR             ======================
+//
+//  Purpose: Rightcontroller event listener.
+//
+//  This script should be added on the Rightcontroller.
+//
+//  Last edit: Han20180816
+//============================================================================
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UpsyVR_RightController : MonoBehaviour {
+
+	SteamVR_Controller.Device device;
+	public GameObject _Upsy_ControllerEvents; 
+	// Use this for initialization
+	void Start () {
+		device = SteamVR_Controller.Input((int)GetComponent<SteamVR_TrackedObject>().index);
+		_Upsy_ControllerEvents = GameObject.Find ("UpsyVR_VRController") as GameObject;
+	}
+
+	// Update is called once per frame
+	void Update () {
+		device = SteamVR_Controller.Input((int)GetComponent<SteamVR_TrackedObject>().index);
+		///   Trigger
+		if(device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Trigger = true;
+		}else{if(device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Trigger = false;}};
+		///   Grip
+		if(device.GetPressDown(SteamVR_Controller.ButtonMask.Grip)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Grip = true;
+		}else{if(device.GetPressUp(SteamVR_Controller.ButtonMask.Grip)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Grip = false;}};
+		///   ApplicationMenu
+		if(device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_ApplicationMenu = true;
+		}else{if(device.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_ApplicationMenu = false;}};
+		///   Touchpad
+		if(device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Touchpad = true;
+		}else{if(device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_Touchpad = false;}};
+		///   Touch
+		if(device.GetTouchDown(SteamVR_Controller.ButtonMask.Touchpad)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_TouchpadTouch = true;
+		}else{if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Touchpad)){_Upsy_ControllerEvents.GetComponent<UpsyVR_ControllerEvents>().Right_TouchpadTouch = false;}};
+	}
+}
