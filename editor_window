@@ -1,0 +1,30 @@
+using UnityEngine;
+using UnityEditor;
+
+public class UpsyVR : EditorWindow
+{
+	bool groupEnabled;
+	static float Screen_H = 0;
+	static float Screen_W = 0;
+	public Texture2D logo;
+	[MenuItem("UpsyVR toolbox/UpsyVR Editor")]
+	public static void Init()
+	{
+		UpsyVR window = (UpsyVR)EditorWindow.GetWindow(typeof(UpsyVR));
+		window.Show();
+
+		Resolution[] resolutions = Screen.resolutions;
+		foreach (Resolution res in resolutions) {
+			Screen_W = Mathf.Max (res.width);
+			Screen_H = Mathf.Max (res.height);
+		}
+		window.position =new Rect(20,20,Screen_W-40,Screen_H-40);
+	}
+
+	void OnGUI()
+	{
+
+		GUILayout.Button ("Get Start");
+
+	}
+}
